@@ -12,9 +12,9 @@ class User extends Model
         
     }
 
-    public function load(int $id)
+    public function load(int $id, string $columns = "*")
     {
-        
+        $load = $this->read("SELECT {$columns} FROM ". self::$entity ." WHERE :id" , "id=$id");
     }
 
     public function find(string $email)

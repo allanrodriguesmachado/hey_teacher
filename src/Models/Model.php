@@ -2,7 +2,9 @@
 
 namespace Src\Models;
 
-abstract class Model
+use Src\db\Connect;
+
+abstract class Model extends Connect
 {
     protected ?object $data;
     protected \PDOException $fail;
@@ -28,9 +30,20 @@ abstract class Model
         
     }
 
-    protected function read()
+    protected function read(string $select, string|array $params)
     {
-        
+        try {
+            $stmt = Connect::getInstance();
+            parse_str($params, $params);
+            foreach ($params AS $key => $value) {
+                dd(is_numeric($value) ? \PDO::PARAM_INT : \PDO::PARAM_STR);
+//                $type = (is_numeric($value))
+            }
+
+//            $stmt->prepare();
+        }catch (\PDOException $exception) {
+            return $this->fail($exception);
+        }
     }
 
     protected function update()

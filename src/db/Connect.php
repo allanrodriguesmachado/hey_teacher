@@ -5,11 +5,11 @@ namespace Src\db;
 use Exception;
 use PDO;
 
-class Connect
+abstract class Connect
 {
     private static PDO $instance;
 
-    public function getInstance(): PDO|string
+    public static function getInstance(): PDO|string
     {
         try {
             self::$instance = new PDO(
