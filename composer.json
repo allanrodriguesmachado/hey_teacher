@@ -1,0 +1,20 @@
+{
+    "name": "allan/project",
+    "autoload": {
+        "psr-4": {
+            "Src\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Allan Rodrigues",
+            "email": "allan.machado@shibata.com.br"
+        }
+    ],
+    "require": {
+      "ext-pdo": "*"
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^7.0"
+    }
+}
