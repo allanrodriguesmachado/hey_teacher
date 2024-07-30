@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 class QuestionController extends Controller
 {
-    public function store(): \Illuminate\Http\RedirectResponse
+    public function store()
     {
-        dd(\request()->all());
+        dd(\request()->get('question'));
 
         return to_route('dashboard');
     }

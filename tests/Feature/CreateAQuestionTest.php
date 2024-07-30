@@ -7,14 +7,14 @@ it('Should be able to create a new question bigger than 255 characters', functio
 
     \Pest\Laravel\actingAs($user);
 
-    $request = \Pest\Laravel\post('question.store', [
+    $request = \Pest\Laravel\post(route('question.store'), [
         'question' => str_repeat('*', 250) . '?',
     ]);
 
     $request->assertRedirect(route('dashboard'));
     \Pest\Laravel\assertDatabaseCount('questions', 1);
     \Pest\Laravel\assertDatabaseHas('questions', ['question' => str_repeat('*', 260) . '?']);
-})->todo();
+});
 
 it('Should check if ends with question mark?', function () {
 
