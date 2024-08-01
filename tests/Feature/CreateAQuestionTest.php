@@ -15,7 +15,7 @@ it('Should be able to create a new question bigger than 255 characters', functio
 
     $request->assertRedirect(route('dashboard'));
     assertDatabaseCount('questions', 1);
-    assertDatabaseHas('questions', ['question' => str_repeat('*', 260) . '?']);
+    assertDatabaseHas('questions', ['question' => str_repeat('*', 250) . '?']);
 });
 
 it('Should check if ends with question mark?', function () {

@@ -2,11 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Question;
+
 class QuestionController extends Controller
 {
-    public function store()
+    public function store(): \Illuminate\Http\RedirectResponse
     {
-        dd(\request()->get('question'));
+        $validate = request()->validate([
+            'question' => ['required'],
+        ]);
+
+        Question::query()->create($validate);
 
         return to_route('dashboard');
     }
