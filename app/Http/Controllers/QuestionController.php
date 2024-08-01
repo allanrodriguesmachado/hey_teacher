@@ -9,7 +9,7 @@ class QuestionController extends Controller
     public function store(): \Illuminate\Http\RedirectResponse
     {
         $validate = request()->validate([
-            'question' => ['required'],
+            'question' => ['required', 'min:10'],
         ]);
 
         Question::query()->create($validate);
