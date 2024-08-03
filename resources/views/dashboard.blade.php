@@ -8,13 +8,14 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div>
-                <x-form method :action="route('question.store')" />
+                <x-form method :action="route('question.store')" >
                     <x-textarea label="Digite sua pergunta" name="question"/>
 
                     <div class="flex justify-end">
-                        <x-btn.cancel name="Cancel" />
-                        <x-btn.submit name="Submit" />
+                        <x-btn.cancel name="Cancelar" />
+                        <x-btn.submit type="submit" name="Enviar" />
                     </div>
+                </x-form>
             </div>
         </div>
     </div>
